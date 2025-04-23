@@ -1,10 +1,8 @@
 - 👋 Hi, I’m @kithroetel
 - 👀 I’m interested in KI, NFL, Metal Music
-- 🌱 I’m currently learning Open AI Playground
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
+- 🌱 I’m currently learning everything about KI, ChatGPT and all other Stuff related to that
+- 📫 How to reach me: ki_throetel@web.de
+- ⚡ Fun fact: I am an SAP Principal Consultant in Logistics
 
 <!---
 kithroetel/kithroetel is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
