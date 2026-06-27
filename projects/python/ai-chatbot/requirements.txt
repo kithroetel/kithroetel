@@ -1,0 +1,13 @@
+# Abhängigkeiten für den KI-Chatbot
+
+# Hugging Face Transformers (für Sprachmodelle)
+transformers>=4.30.0
+
+# PyTorch (für GPU/CPU-Beschleunigung)
+torch>=2.0.0
+
+# Optional: Für GPU-Unterstützung (falls verfügbar)
+# torch>=2.0.0+cu118  # Für CUDA 11.8
+
+# Optional: Für bessere Performance
+# accelerate>=0.20.0

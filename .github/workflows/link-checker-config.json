@@ -1,0 +1,17 @@
+{
+  "ignorePatterns": [
+    "^https://github.com/.*",
+    "^https://www.linkedin.com/.*",
+    "^https://twitter.com/.*",
+    "^mailto:.*",
+    "^#.*",
+    "^\\.github/.*"
+  ],
+  "replacePatterns": [],
+  "baseUrl": "https://github.com/kithroetel/kithroetel",
+  "checkExternal": true,
+  "checkInternal": true,
+  "checkAnchors": true,
+  "checkImages": true,
+  "timeout": 10000
+}

@@ -1,0 +1,36 @@
+name: Check Links
+
+# 🔍 Workflow zum Überprüfen der Links in Markdown-Dateien
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * *'  # Täglich um Mitternacht
+
+jobs:
+  check-links:
+    name: Check Links in Markdown
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Link Checker
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: 'yes'
+          use-verbose-mode: 'yes'
+          config-file: '.github/workflows/link-checker-config.json'
+          folder-path: '.'
+
+      - name: Upload Results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: link-check-results
+          path: |
+            **/link-check-results-*.json
+            **/link-check-results-*.md
