@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI App Builder vs. CLI Tools – Vergleich</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #3498db;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #2c3e50;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        
+        /* Vergleichstabelle */
+        #comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        #comparison-table th,
+        #comparison-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        #comparison-table th {
+            background-color: #3498db;
+            color: white;
+        }
+        #comparison-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        #comparison-table tr:hover {
+            background-color: #e6f7ff;
+        }
+        .clickable {
+            cursor: pointer;
+        }
+        .clickable:hover {
+            background-color: #e6f7ff !important;
+        }
+        .details-row {
+            background-color: #f9f9f9;
+        }
+        .details-row td {
+            padding: 15px;
+            border-top: none;
+        }
+        
+        /* Visueller Vergleich */
+        .diagram-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .diagram-box {
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            width: 45%;
+            min-width: 300px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .ai-builder-box {
+            background: linear-gradient(135deg, #e8f4fc, #b8e0ff);
+        }
+        .cli-tools-box {
+            background: linear-gradient(135deg, #f0f0f0, #d0d0d0);
+        }
+        .diagram-box h3 {
+            margin-top: 0;
+        }
+        .diagram-box ul {
+            text-align: left;
+            padding-left: 20px;
+        }
+        .diagram-box li {
+            margin-bottom: 8px;
+        }
+        
+        /* Quiz */
+        #quiz-form {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        #quiz-form p {
+            margin-bottom: 5px;
+        }
+        #quiz-form input[type="radio"] {
+            margin-right: 10px;
+        }
+        #quiz-form button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        #quiz-form button:hover {
+            background-color: #2980b9;
+        }
+        #quiz-result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            .diagram-container {
+                flex-direction: column;
+            }
+            .diagram-box {
+                width: 100%;
+            }
+        }
+        
+        /* Icons und Symbole */
+        .icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .pros {
+            color: #27ae60;
+        }
+        .cons {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 AI App Builder vs. CLI Tools – Interaktiver Vergleich</h1>
+
+        <section id="intro">
+            <h2>📌 Einführung</h2>
+            <p>
+                AI App Builder und CLI Tools (Command Line Interface) sind zwei grundlegend verschiedene Ansätze,
+                um KI-Anwendungen zu erstellen und zu verwalten. Während <strong>AI App Builder</strong> eine visuelle,
+                oft Low-Code/No-Code-Umgebung bieten, erfordern <strong>CLI Tools</strong> manuelle Befehle und
+                Skripting-Kenntnisse.
+            </p>
+            <p>
+                Diese interaktive Übersicht hilft dir, die Unterschiede, Vor- und Nachteile beider Ansätze zu verstehen
+                und die richtige Wahl für dein Projekt zu treffen.
+            </p>
+        </section>
+
+        <section id="comparison">
+            <h2>📊 Vergleichstabelle</h2>
+            <p>Klicke auf eine Zeile, um weitere Details anzuzeigen.</p>
+            <table id="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Kriterium</th>
+                        <th>AI App Builder</th>
+                        <th>CLI Tools</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="clickable" onclick="toggleDetails('benutzerfreundlichkeit')">
+                        <td><strong>Benutzerfreundlichkeit</strong></td>
+                        <td>⭐⭐⭐⭐⭐ (Drag & Drop, visuelle UI)</td>
+                        <td>⭐⭐ (Befehle & Skripte erforderlich)</td>
+                    </tr>
+                    <tr id="benutzerfreundlichkeit-details" class="details-row" style="display: none;">
+                        <td colspan="3">
+                            <p><strong>AI App Builder:</strong> Ideal für Nutzer ohne Programmierkenntnisse. Bietet eine intuitive, visuelle Oberfläche mit Drag-and-Drop-Funktionalität. Beispiele: <em>Bubble.io mit KI-Plugins</em>, <em>Microsoft Power Apps</em>, oder <em>Appy Pie</em>.</p>
+                            <p><strong>CLI Tools:</strong> Erfordert Kenntnisse in Terminal-Befehlen (z. B. <code>python -m pip install</code>, <code>docker run</code>, oder <code>git clone</code>). Beispiele: <em>Hugging Face Transformers CLI</em>, <em>FastAPI</em>, oder <em>TensorFlow CLI</em>.</p>
+                        </td>
+                    </tr>
+                    
+                    <tr class="clickable" onclick="toggleDetails('flexibilitaet')">
+                        <td><strong>Flexibilität & Anpassung</strong></td>
+                        <td>⭐⭐ (Eingeschränkt durch vorgefertigte Module)</td>
+                        <td>⭐⭐⭐⭐⭐ (Volle Kontrolle über Code und Infrastruktur)</td>
+                    </tr>
+                    <tr id="flexibilitaet-details" class="details-row" style="display: none;">
+                        <td colspan="3">
+                            <p><strong>AI App Builder:</strong> Die Anpassungsmöglichkeiten sind oft begrenzt, da die Plattform vorgefertigte Module und Vorlagen verwendet. Komplexe Logik oder individuelle Algorithmen sind schwer umsetzbar.</p>
+                            <p><strong>CLI Tools:</strong> Bietet maximale Flexibilität, da du den Code selbst schreibst und jede Komponente individuell anpassen kannst. Ideal für maßgeschneiderte Lösungen.</p>
+                        </td>
+                    </tr>
+                    
+                    <tr class="clickable" onclick="toggleDetails('entwicklung')">
+                        <td><strong>Entwicklungsgeschwindigkeit</strong></td>
+                        <td>⭐⭐⭐⭐⭐ (Schnelle Prototypen in Minuten)</td>
+                        <td>⭐⭐ (Zeitaufwendiger, aber präzise)</td>
+                    </tr>
+                    <tr id="entwicklung-details" class="details-row" style="display: none;">
+                        <td colspan="3">
+                            <p><strong>AI App Builder:</strong> Ermöglicht das Erstellen von Prototypen in kürzester Zeit. Ideal für MVPs (Minimum Viable Products) oder einfache Anwendungen.</p>
+                            <p><strong>CLI Tools:</strong> Die Entwicklung dauert länger, da Code geschrieben, getestet und debuggt werden muss. Allerdings ist das Ergebnis oft robuster und skalierbarer.</p>
+                        </td>
+                    </tr>
+                    
+                    <tr class="clickable" onclick="toggleDetails('kosten')">
+                        <td><strong>Kosten</strong></td>
+                        <td>⭐⭐ (Oft Abonnement-Modell, kann teuer werden)</td>
+                        <td>⭐⭐⭐⭐ (Meist kostenlos, außer Cloud-Ressourcen)</td>
+                    </tr>
+                    <tr id="kosten-details" class="details-row" style="display: none;">
+                        <td colspan="3">
+                            <p><strong>AI App Builder:</strong> Viele Plattformen bieten kostenlose Testversionen an, aber für erweiterte Funktionen oder Skalierung sind oft monatliche Gebühren fällig (z. B. $20–$200/Monat).</p>
+                            <p><strong>CLI Tools:</strong> Die meisten Tools (z. B. Python, Docker, Git) sind kostenlos. Kosten entstehen erst durch Cloud-Dienste (z. B. AWS, Google Cloud) oder Premium-APIs.</p>
+                        </td>
+                    </tr>
+                    
+                    <tr class="clickable" onclick="toggleDetails('skalierbarkeit')">
+                        <td><strong>Skalierbarkeit</strong></td>
+                        <td>⭐⭐⭐ (Abhängig vom Anbieter, oft begrenzt)</td>
+                        <td>⭐⭐⭐⭐⭐ (Beliebig skalierbar mit Cloud-Infrastruktur)</td>
+                    </tr>
+                    <tr id="skalierbarkeit-details" class="details-row" style="display: none;">
+                        <td colspan="3">
+                            <p><strong>AI App Builder:</strong> Skalierung ist oft durch die Plattform begrenzt. Bei hohem Traffic oder komplexen Anforderungen können Performance-Probleme auftreten.</p>
+                            <p><strong>CLI Tools:</strong> Skalierung ist nur durch die zugrundeliegende Infrastruktur begrenzt. Mit Cloud-Diensten wie AWS oder Kubernetes lässt sich die Anwendung beliebig skalieren.</p>
+                        </td>
+                    </tr>
+                    
+                    <tr class="clickable" onclick="toggleDetails('lernkurve')">
+                        <td><strong>Lernkurve</strong></td>
+                        <td>⭐⭐⭐⭐⭐ (Einfach, keine Vorkenntnisse nötig)</td>
+                        <td>⭐ (Steil, erfordert Programmierkenntnisse)</td>
+                    </tr>
+                    <tr id="lernkurve-details" class="details-row" style="display: none;">
+                        <td colspan="3">
+                            <p><strong>AI App Builder:</strong> Geeignet für Anfänger oder Nutzer ohne technische Vorkenntnisse. Die Bedienung ist oft selbsterklärend.</p>
+                            <p><strong>CLI Tools:</strong> Erfordert Kenntnisse in Programmierung, Terminal-Befehlen und oft auch in KI-Frameworks (z. B. TensorFlow, PyTorch). Die Einarbeitungszeit ist deutlich länger.</p>
+                        </td>
+                    </tr>
+                    
+                    <tr class="clickable" onclick="toggleDetails('integration')">
+                        <td><strong>Integration & Erweiterbarkeit</strong></td>
+                        <td>⭐⭐⭐ (Begrenzt auf Plattform-Integrationen)</td>
+                        <td>⭐⭐⭐⭐⭐ (Unbegrenzte Integrationen via APIs, Webhooks, etc.)</td>
+                    </tr>
+                    <tr id="integration-details" class="details-row" style="display: none;">
+                        <td colspan="3">
+                            <p><strong>AI App Builder:</strong> Integriert oft beliebte Dienste (z. B. Google Sheets, Slack, Zapier), aber individuelle Integrationen sind schwer umsetzbar.</p>
+                            <p><strong>CLI Tools:</strong> Ermöglicht die Integration mit jedem Dienst oder jeder API, sofern die entsprechende Dokumentation verfügbar ist. Ideal für komplexe Workflows.</p>
+                        </td>
+                    </tr>
+                    
+                    <tr class="clickable" onclick="toggleDetails('wartung')">
+                        <td><strong>Wartung & Updates</strong></td>
+                        <td>⭐⭐⭐⭐ (Automatische Updates durch den Anbieter)</td>
+                        <td>⭐⭐ (Manuelle Wartung erforderlich)</td>
+                    </tr>
+                    <tr id="wartung-details" class="details-row" style="display: none;">
+                        <td colspan="3">
+                            <p><strong>AI App Builder:</strong> Der Anbieter kümmert sich um Updates, Sicherheitspatches und Serverwartung. Nutzer müssen sich nicht um technische Details kümmern.</p>
+                            <p><strong>CLI Tools:</strong> Der Entwickler ist selbst für Updates, Sicherheit und Wartung verantwortlich. Dies erfordert kontinuierliche Aufmerksamkeit.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="diagram">
+            <h2>📈 Visueller Vergleich</h2>
+            <div class="diagram-container">
+                <div class="diagram-box ai-builder-box">
+                    <div class="icon">🏗️🎨</div>
+                    <h3>AI App Builder</h3>
+                    <ul>
+                        <li class="pros">✅ Keine Code-Kenntnisse nötig</li>
+                        <li class="pros">✅ Schnelle Prototypen in Minuten</li>
+                        <li class="pros">✅ Intuitive, visuelle Oberfläche</li>
+                        <li class="pros">✅ Automatische Wartung & Updates</li>
+                        <li class="cons">❌ Eingeschränkte Anpassung</li>
+                        <li class="cons">❌ Abhängigkeit vom Anbieter</li>
+                        <li class="cons">❌ Skalierung oft begrenzt</li>
+                        <li class="cons">❌ Kosten können hoch sein</li>
+                    </ul>
+                </div>
+                
+                <div class="diagram-box cli-tools-box">
+                    <div class="icon">⚙️💻</div>
+                    <h3>CLI Tools</h3>
+                    <ul>
+                        <li class="pros">✅ Volle Kontrolle über Code & Infrastruktur</li>
+                        <li class="pros">✅ Beliebig skalierbar</li>
+                        <li class="pros">✅ Unbegrenzte Integrationen</li>
+                        <li class="pros">✅ Kostenlos (außer Cloud-Ressourcen)</li>
+                        <li class="cons">❌ Steile Lernkurve</li>
+                        <li class="cons">❌ Zeitaufwendige Entwicklung</li>
+                        <li class="cons">❌ Manuelle Wartung erforderlich</li>
+                        <li class="cons">❌ Fehleranfällig (Debugging nötig)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="use-cases">
+            <h2>🎯 Typische Anwendungsfälle</h2>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+                <div style="width: 45%; min-width: 300px; margin: 10px;">
+                    <h3>🔹 Wann ein AI App Builder?</h3>
+                    <ul>
+                        <li>Du möchtest <strong>schnell einen Prototypen</strong> erstellen.</li>
+                        <li>Du hast <strong>keine Programmierkenntnisse</strong>.</li>
+                        <li>Dein Projekt ist <strong>einfach bis mittelkomplex</strong> (z. B. Chatbot, Datenanalyse-Dashboard).</li>
+                        <li>Du möchtest <strong>keine Infrastruktur verwalten</strong>.</li>
+                        <li>Beispiele: <em>KI-gestützte Formulare, Automatisierung von Workflows, einfache Web-Apps</em>.</li>
+                    </ul>
+                </div>
+                <div style="width: 45%; min-width: 300px; margin: 10px;">
+                    <h3>🔹 Wann CLI Tools?</h3>
+                    <ul>
+                        <li>Du brauchst <strong>volle Kontrolle</strong> über deine Anwendung.</li>
+                        <li>Dein Projekt ist <strong>komplex oder individuell</strong> (z. B. KI-Modell-Training, Echtzeit-Datenverarbeitung).</li>
+                        <li>Du möchtest <strong>skalierbare Lösungen</strong> erstellen.</li>
+                        <li>Du hast <strong>Programmierkenntnisse</strong> oder ein Entwicklerteam.</li>
+                        <li>Beispiele: <em>Eigene KI-Modelle trainieren, Microservices, High-Performance-Anwendungen</em>.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="quiz">
+            <h2>🧠 Quiz: Welche Lösung passt zu dir?</h2>
+            <p>Beantworte die folgenden Fragen, um eine Empfehlung zu erhalten.</p>
+            <form id="quiz-form">
+                <p><strong>1. Wie sind deine Programmierkenntnisse?</strong></p>
+                <div>
+                    <input type="radio" name="q1" value="beginner" id="q1-beginner">
+                    <label for="q1-beginner">Anfänger (keine oder geringe Kenntnisse)</label>
+                </div>
+                <div>
+                    <input type="radio" name="q1" value="intermediate" id="q1-intermediate">
+                    <label for="q1-intermediate">Fortgeschritten (kenne Grundlagen von Python, CLI, etc.)</label>
+                </div>
+                <div>
+                    <input type="radio" name="q1" value="advanced" id="q1-advanced">
+                    <label for="q1-advanced">Experte (erfahren in KI-Frameworks, Cloud, etc.)</label>
+                </div>
+                
+                <p><strong>2. Wie wichtig ist dir Flexibilität?</strong></p>
+                <div>
+                    <input type="radio" name="q2" value="low" id="q2-low">
+                    <label for="q2-low">Niedrig (Standardfunktionen reichen aus)</label>
+                </div>
+                <div>
+                    <input type="radio" name="q2" value="medium" id="q2-medium">
+                    <label for="q2-medium">Mittel (einige Anpassungen nötig)</label>
+                </div>
+                <div>
+                    <input type="radio" name="q2" value="high" id="q2-high">
+                    <label for="q2-high">Hoch (individuelle Lösungen erforderlich)</label>
+                </div>
+                
+                <p><strong>3. Wie schnell muss dein Projekt umgesetzt werden?</strong></p>
+                <div>
+                    <input type="radio" name="q3" value="fast" id="q3-fast">
+                    <label for="q3-fast">Schnell (innerhalb von Tagen/Wochen)</label>
+                </div>
+                <div>
+                    <input type="radio" name="q3" value="medium" id="q3-medium">
+                    <label for="q3-medium">Mittel (einige Wochen/Monate)</label>
+                </div>
+                <div>
+                    <input type="radio" name="q3" value="slow" id="q3-slow">
+                    <label for="q3-slow">Langsam (mehrere Monate, langfristiges Projekt)</label>
+                </div>
+                
+                <p><strong>4. Wie hoch ist dein Budget?</strong></p>
+                <div>
+                    <input type="radio" name="q4" value="low" id="q4-low">
+                    <label for="q4-low">Gering (unter 50€/Monat)</label>
+                </div>
+                <div>
+                    <input type="radio" name="q4" value="medium" id="q4-medium">
+                    <label for="q4-medium">Mittel (50–500€/Monat)</label>
+                </div>
+                <div>
+                    <input type="radio" name="q4" value="high" id="q4-high">
+                    <label for="q4-high">Hoch (über 500€/Monat)</label>
+                </div>
+                
+                <button type="button" onclick="evaluateQuiz()">Ergebnis anzeigen</button>
+            </form>
+            <div id="quiz-result"></div>
+        </section>
+
+        <section id="tools">
+            <h2>🛠️ Beliebte Tools & Plattformen</h2>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+                <div style="width: 45%; min-width: 300px; margin: 10px;">
+                    <h3>🔹 AI App Builder</h3>
+                    <ul>
+                        <li><strong>Bubble.io</strong> – Visuelle Web-App-Entwicklung mit KI-Plugins.</li>
+                        <li><strong>Microsoft Power Apps</strong> – Low-Code-Plattform für Business-Anwendungen.</li>
+                        <li><strong>Appy Pie</strong> – KI-gestützte App-Entwicklung für Mobile & Web.</li>
+                        <li><strong>Zapier</strong> – Automatisierung von Workflows mit KI-Integrationen.</li>
+                        <li><strong>Airtable</strong> – Datenbanken mit KI-Funktionen für No-Code-Anwendungen.</li>
+                    </ul>
+                </div>
+                <div style="width: 45%; min-width: 300px; margin: 10px;">
+                    <h3>🔹 CLI Tools</h3>
+                    <ul>
+                        <li><strong>Hugging Face Transformers CLI</strong> – KI-Modelle herunterladen und verwenden.</li>
+                        <li><strong>FastAPI</strong> – Python-Framework für KI-gestützte APIs.</li>
+                        <li><strong>TensorFlow / PyTorch</strong> – Frameworks für Deep Learning.</li>
+                        <li><strong>Docker</strong> – Containerisierung von KI-Anwendungen.</li>
+                        <li><strong>Git</strong> – Versionskontrolle für Code.</li>
+                        <li><strong>AWS CLI / Google Cloud SDK</strong> – Cloud-Infrastruktur verwalten.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="conclusion">
+            <h2>📝 Fazit</h2>
+            <p>
+                Die Wahl zwischen <strong>AI App Buildern</strong> und <strong>CLI Tools</strong> hängt von deinen Anforderungen, Kenntnissen und Zielen ab:
+            </p>
+            <ul>
+                <li><strong>AI App Builder</strong> sind ideal für <strong>schnelle, einfache Lösungen</strong> ohne Programmierkenntnisse. Sie eignen sich besonders für Prototypen, MVPs oder Anwendungen mit standardisierten Funktionen.</li>
+                <li><strong>CLI Tools</strong> bieten <strong>maximale Flexibilität und Kontrolle</strong>, erfordern aber technische Kenntnisse und mehr Zeit. Sie sind die beste Wahl für komplexe, skalierbare oder individuelle Projekte.</li>
+            </ul>
+            <p>
+                In vielen Fällen kann auch ein <strong>Hybrid-Ansatz</strong> sinnvoll sein: z. B. einen AI App Builder für die Benutzeroberfläche nutzen und CLI Tools für die Backend-Logik oder KI-Modelle verwenden.
+            </p>
+        </section>
+    </div>
+
+    <script>
+        // Funktion für klickbare Tabellenzeilen
+        function toggleDetails(id) {
+            const row = document.getElementById(id + '-details');
+            if (row.style.display === 'none') {
+                row.style.display = 'table-row';
+            } else {
+                row.style.display = 'none';
+            }
+        }
+
+        // Quiz-Auswertung
+        function evaluateQuiz() {
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            const q3 = document.querySelector('input[name="q3"]:checked');
+            const q4 = document.querySelector('input[name="q4"]:checked');
+
+            if (!q1 || !q2 || !q3 || !q4) {
+                alert("Bitte beantworte alle Fragen!");
+                return;
+            }
+
+            const resultDiv = document.getElementById('quiz-result');
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = '';
+
+            // Punktevergabe
+            let aiBuilderPoints = 0;
+            let cliToolsPoints = 0;
+
+            // Frage 1: Programmierkenntnisse
+            if (q1.value === 'beginner') aiBuilderPoints += 2;
+            else if (q1.value === 'intermediate') {
+                aiBuilderPoints += 1;
+                cliToolsPoints += 1;
+            }
+            else if (q1.value === 'advanced') cliToolsPoints += 2;
+
+            // Frage 2: Flexibilität
+            if (q2.value === 'low') aiBuilderPoints += 2;
+            else if (q2.value === 'medium') {
+                aiBuilderPoints += 1;
+                cliToolsPoints += 1;
+            }
+            else if (q2.value === 'high') cliToolsPoints += 2;
+
+            // Frage 3: Entwicklungsgeschwindigkeit
+            if (q3.value === 'fast') aiBuilderPoints += 2;
+            else if (q3.value === 'medium') {
+                aiBuilderPoints += 1;
+                cliToolsPoints += 1;
+            }
+            else if (q3.value === 'slow') cliToolsPoints += 2;
+
+            // Frage 4: Budget
+            if (q4.value === 'low') aiBuilderPoints += 1;
+            else if (q4.value === 'medium') {
+                aiBuilderPoints += 1;
+                cliToolsPoints += 1;
+            }
+            else if (q4.value === 'high') cliToolsPoints += 1;
+
+            // Ergebnis
+            if (aiBuilderPoints > cliToolsPoints) {
+                resultDiv.innerHTML = `
+                    <h3 style="color: #27ae60;">🎉 Empfehlung: AI App Builder!</h3>
+                    <p>Basierend auf deinen Antworten ist ein <strong>AI App Builder</strong> die beste Wahl für dich.</p>
+                    <p><strong>Gründe:</strong></p>
+                    <ul>
+                        <li>Du kannst schnell und ohne Programmierkenntnisse loslegen.</li>
+                        <li>Die Kosten sind überschaubar, und du sparst Zeit.</li>
+                        <li>Ideal für Prototypen oder einfache Anwendungen.</li>
+                    </ul>
+                    <p><strong>Empfohlene Tools:</strong> Bubble.io, Microsoft Power Apps, Appy Pie</p>
+                `;
+                resultDiv.style.background = '#e8f5e9';
+            } else if (cliToolsPoints > aiBuilderPoints) {
+                resultDiv.innerHTML = `
+                    <h3 style="color: #3498db;">🎉 Empfehlung: CLI Tools!</h3>
+                    <p>Basierend auf deinen Antworten sind <strong>CLI Tools</strong> die beste Wahl für dich.</p>
+                    <p><strong>Gründe:</strong></p>
+                    <ul>
+                        <li>Du brauchst Flexibilität und Kontrolle über deine Anwendung.</li>
+                        <li>Dein Projekt ist komplex oder langfristig angelegt.</li>
+                        <li>Du hast die technischen Kenntnisse oder ein Team, das dich unterstützt.</li>
+                    </ul>
+                    <p><strong>Empfohlene Tools:</strong> Hugging Face CLI, FastAPI, TensorFlow, Docker</p>
+                `;
+                resultDiv.style.background = '#e3f2fd';
+            } else {
+                resultDiv.innerHTML = `
+                    <h3 style="color: #9b59b6;">🤔 Hybrid-Ansatz?</h3>
+                    <p>Basierend auf deinen Antworten könnte ein <strong>Hybrid-Ansatz</strong> sinnvoll sein.</p>
+                    <p><strong>Möglichkeiten:</strong></p>
+                    <ul>
+                        <li>Nutze einen <strong>AI App Builder</strong> für die Benutzeroberfläche (z. B. Bubble.io).</li>
+                        <li>Setze <strong>CLI Tools</strong> für die Backend-Logik oder KI-Modelle ein (z. B. FastAPI + Hugging Face).</li>
+                        <li>Kombiniere No-Code-Tools mit individuellen Skripten.</li>
+                    </ul>
+                    <p><strong>Empfohlene Kombination:</strong> Bubble.io + FastAPI oder Zapier + Python-Skripte</p>
+                `;
+                resultDiv.style.background = '#f3e5f5';
+            }
+        }
+    </script>
+</body>
+</html>
